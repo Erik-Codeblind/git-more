@@ -1,0 +1,12 @@
+#/bin/bash
+# Push the current branch to origin.
+# Will not push to master or develop.
+current=$(git rev-parse --abbrev-ref HEAD)
+
+if [ $current == 'master' ] || [ $current == 'develop' ];then
+    echo "Pushing to the master or develop branches is not permitted."
+    exit 1
+else
+    git push origin $current
+    exit 0
+fi
