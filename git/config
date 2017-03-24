@@ -5,10 +5,16 @@
     brD = branch -D
     co = checkout
     cob = branchify
+    conflicts = diff --name-only --diff-filter=U
     ditch = reset HEAD~1 --hard
-    df = diff
+    dump = cat-file -p
+    df = diff --staged
+    dt = diff-tree --no-commit-id --name-only -r
     fb = find-branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    ri = rebase -i
     st = status
+    type = cat-file -t
     up = pull --rebase origin
     upd = pull --rebase origin develop
     undo = reset HEAD~1 --mixed
