@@ -23,7 +23,7 @@ git bulk-delete
 
 
 
-## git-find
+## git-find-branch
 
 Runs a grep expression against the branches in your repo. If only a single match is found, it will check out that branch immediately. When multiple matches are found, they will be listed such that you may select which one to checkout.
   
@@ -39,7 +39,7 @@ $ git branch
 
 Search for branches with "example" in their name and checkout item 1, *example1*.
 ```
-git find test
+git find-branch test
 Found the following...
 0: exampleA
 1: example1
@@ -49,7 +49,7 @@ Switched to branch 'example1'
 
 Search for branch "master". There is only one, so it is immediately checked out.
 ```
-$ git find master
+$ git find-branch master
 M       README.md
 Switched to branch 'master'
 ```

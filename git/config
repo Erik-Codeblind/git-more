@@ -7,6 +7,8 @@
     cob = branchify
     ditch = reset HEAD~1 --hard
     df = diff
+    fb = find-branch
+    st = status
     up = pull --rebase origin
     upd = pull --rebase origin develop
     undo = reset HEAD~1 --mixed
