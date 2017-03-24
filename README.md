@@ -8,7 +8,9 @@ Add the path to this installation directory to you `.bashrc` (or `.bash_profile`
 
 **Example**
 ```
-export PATH="$PATH:$HOME/Development/git-more" # More git commands
+# Load git commands and aliases from git-more  <https://github.com/Erik-Codeblind/git-more>
+export PATH="$PATH:$HOME/Development/git-more"
+export XDG_CONFIG_HOME="$HOME/Development/git-more"
 ```
 
 ## git-bulk-delete
