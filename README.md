@@ -50,7 +50,7 @@ Loops over branches in a repo and provides the user with an opportunity to delet
 
 - Enter "y" or "yes" to run `git branch -d` on the listed branch. 
 - Entering "q" or "quit" will exit the program. 
-- Empty return skips to the next current item.
+- Empty return skips to the next item, leaving current item intact.
 
 Calling git-bulk-delete with the force delete flag `-D` allow for the removal of selected un-merged branches. No warning is given as to the merge status of a given branch.
 
