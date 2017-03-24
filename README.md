@@ -20,6 +20,11 @@ This includes a custom git config file with numerous aliases. Have a look therei
 
 ## git-branchify (cob)
 
+```
+git branchify Unformatted Branch Title String
+git cob Unformatted Branch Title String
+```
+
 This command allows you to create new branches with `checkout -b`, while automatically formatting the branch name to lower kebab-case. It is
 useful for managing long branch names, especially when cutting and pasting from Jira ticket titles. 
 
@@ -54,6 +59,11 @@ Switched to a new branch 'spike/giving-this-a-try'
 
 ## git-bulk-delete (del)
 
+```
+git bulk-delete [-D force delete un-merged branches]
+git del
+```
+
 Loops over branches in a repo and provides the user with an opportunity to delete the currently listed branch. 
 
 - Enter "y" or "yes" to run `git branch -d` on the listed branch. 
@@ -65,6 +75,10 @@ Calling git-bulk-delete with the force delete flag `-D` allow for the removal of
 By default the "master" and "develop" branches will be ignored, so you can't accidentally delete them.
 
 ## git-find-branch (fbr)
+```
+git find-branch 'grep friendly search pattern'
+git fbr 'grep friendly search pattern'
+```
 
 Runs a grep expression against the branches in your repo. 
 
@@ -99,6 +113,11 @@ M       README.md
 Switched to branch 'master'
 ```
 ## git-pull-request-checkout (copr, prco)
+```
+git pull-request-checkout PR#
+git copr PR#
+git prco PR#
+```
 
 Fetches the HEAD of a pull request by the PR ID and checks it out as a new branch. If the optional second argument is passed, it will be used to name the new branch, otherwise the branch will be named with the PR ID.
 
@@ -127,7 +146,10 @@ fatal: Couldn't find remote ref pull/978/head
 ```
 
 ## git-push-this (put)
-
+```
+git push-this
+git put
+```
 Push the current branch to the origin repo. The `master` and `develop` branches are protected. Pushing to these branches is not allowed.
 
 ```
