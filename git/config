@@ -3,7 +3,7 @@
   br  = branch
   brd = branch -d
   brD = branch -D
-  fb  = find-branch
+  fbr  = find-branch
   del = bulk-delete
 
   ; git-cat-file
@@ -12,7 +12,7 @@
 
   ; git-checkout
   co    = checkout
-  cob   = branchify ; checkout -b with branchify support.
+  cob   = branchify
   bug   = branchify bug/
   feature = branchify feature/
   hotfix  = branchify hotfix/
