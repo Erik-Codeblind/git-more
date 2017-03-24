@@ -25,7 +25,7 @@ Fetches the HEAD of a pull request by the PR ID and checks it out as a new branc
 
 Naming the branch.
 ```
-git copr 976 FETCH_HEAD
+git copr 976 my_branch
 [...snip...]
  * [new ref]         refs/pull/976/head -> my_branch
 Switched to branch 'my_branch'

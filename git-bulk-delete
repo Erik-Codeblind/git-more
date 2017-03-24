@@ -9,6 +9,7 @@ nc='\033[0m' # No Color
 del='-d'
 if [ "$1" == '-D' ];then
    del='-D'
+   echo 'Operating in force delete mode may remove un-merged branches!'
 fi
 
 for i in "${!found[@]}"
@@ -25,3 +26,5 @@ do
     fi
   fi
 done
+
+echo 'Done.'
