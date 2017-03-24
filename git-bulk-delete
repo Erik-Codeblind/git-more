@@ -1,0 +1,18 @@
+#! /bin/bash
+found=$(git branch | sed 's/[\*]//g')
+found=($found)
+
+red='\033[0;31m'
+yellow='\033[1;33m'
+nc='\033[0m' # No Color
+
+for i in "${!found[@]}"
+do
+  if [ "${found[$i]}" != "master" ] && [ "${found[$i]}" != "develop" ];then
+    echo -n -e "${red}Delete branch ${yellow}${found[$i]}${red} [no]? ${nc}"
+    read -r response
+    if [ "$response" == "y" ] || [ "$response" == "yes" ];then
+       git branch -d "${found[$i]}"
+    fi
+  fi
+done

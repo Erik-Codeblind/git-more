@@ -1,0 +1,12 @@
+[alias]
+    amend = commit -a --amend
+    br = branch
+    brd = branch -d
+    brD = branch -D
+    co = checkout
+    cob = branchify
+    ditch = reset HEAD~1 --hard
+    df = diff
+    up = pull --rebase origin
+    upd = pull --rebase origin develop
+    undo = reset HEAD~1 --mixed
