@@ -13,6 +13,34 @@ export PATH="$PATH:$HOME/Development/git-more"
 export XDG_CONFIG_HOME="$HOME/Development/git-more"
 ```
 
+## git-pull-request-checkout (aliases: copr, prco)
+
+Fetches the HEAD of a pull request by the PR ID and checks it out as a new branch. If the optional second argument is passed, it will be used to name the new branch, otherwise the branch will be named with the PR ID
+
+***Examples***
+
+Naming the branch.
+```
+git copr 976 FETCH_HEAD
+[...snip...]
+ * [new ref]         refs/pull/976/head -> my_branch
+Switched to branch 'my_branch'
+```
+
+Defaulting to pull request ID for branch name.
+```
+git copr 977
+[...snip...]
+ * [new ref]         refs/pull/977/head -> 977
+Switched to branch '977'
+```
+
+No pull request found throws expected error.
+```
+git copr 978
+fatal: Couldn't find remote ref pull/1000/head
+```
+
 ## git-bulk-delete
 
 Loops over branches in a repo and provides the user with an opportunity to delete the current one. Type "y" or "yes" to run `git branch -d` on the listed branch. Defaults to "no", which moves the pointer to the next item without deleting anything. By default, "master" and "develop" branches will be ignored, so you can't accidentally deleting them.

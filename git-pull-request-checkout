@@ -1,0 +1,5 @@
+#!/bin/bash
+# Checkout a pull request by number. Optionally pass in branch name.
+((!$#)) && echo A PR number is required. && exit 1
+if [ ! -z "$2" ];then name="$2"; else name="$1"; fi
+git fetch origin pull/"$1"/head:"$name" && git checkout "$name" && exit 0;
