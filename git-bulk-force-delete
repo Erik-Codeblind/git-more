@@ -1,4 +1,5 @@
-#! /bin/bash
+#!/bin/bash
+# This is the same as bulk-delete, but it uses the uppercase -D flag.
 found=$(git branch | sed 's/[\*]//g')
 found=($found)
 
@@ -9,12 +10,10 @@ nc='\033[0m' # No Color
 for i in "${!found[@]}"
 do
   if [ "${found[$i]}" != "master" ] && [ "${found[$i]}" != "develop" ];then
-    echo -n -e "${yellow}branch -d${red} to delete branch ${yellow}${found[$i]}${red}? ${nc}"
+    echo -n -e "${yellow}branch -D${red} to delete branch ${yellow}${found[$i]}${red}? ${nc}"
     read -r response
     if [ "$response" == "y" ] || [ "$response" == "yes" ];then
-       git branch -d "${found[$i]}"
-    else
-        echo "Skipped ${found[$i]}."
+       git branch -D "${found[$i]}"
     fi
   fi
 done
