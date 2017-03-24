@@ -32,6 +32,9 @@
   ; git-logs
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 
+  ; git-push
+  put = push-this
+
   ; git-rebase
   up  = pull --rebase origin develop
   upm = pull --rebase origin master
