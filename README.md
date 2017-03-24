@@ -4,20 +4,19 @@ Assorted helpers for working with git.
 
 ## Install
 
-Add the path to this installation directory to you `.bashrc` (or `.bash_profile` for OS X).
+Add the path to this installation directory to you `.bashrc` (or `.bash_profile` for OS X) as follows:
 
-**Example**
 ```
 # Load git commands and aliases from git-more  <https://github.com/Erik-Codeblind/git-more>
 export PATH="$PATH:$HOME/Development/git-more"
 export XDG_CONFIG_HOME="$HOME/Development/git-more"
 ```
 
-# git/conf
+## git/conf
 
 This includes a custom git config file with numerous aliases. Have a look therein for more information. Your global `.gitconfig` can be used to override and augment any rules defined here.
 
-## git-pull-request-checkout (aliases: copr, prco)
+## git-pull-request-checkout (copr, prco)
 
 Fetches the HEAD of a pull request by the PR ID and checks it out as a new branch. If the optional second argument is passed, it will be used to name the new branch, otherwise the branch will be named with the PR ID
 
@@ -42,20 +41,30 @@ Switched to branch '977'
 No pull request found throws expected error.
 ```
 git copr 978
-fatal: Couldn't find remote ref pull/1000/head
+fatal: Couldn't find remote ref pull/978/head
 ```
 
 ## git-bulk-delete (del)
 
-Loops over branches in a repo and provides the user with an opportunity to delete the current one. By default, "master" and "develop" branches will be ignored, so you can't accidentally deleting them.
+Loops over branches in a repo and provides the user with an opportunity to delete the currently listed branch. 
 
-Enter "y" or "yes" to run `git branch -d` on the listed branch. Entering "q" or "quit" will exit the program. Empty return skips to the next current item.
+- Enter "y" or "yes" to run `git branch -d` on the listed branch. 
+- Entering "q" or "quit" will exit the program. 
+- Empty return skips to the next current item.
+
+Calling git-bulk-delete with the force delete flag `-D` allow for the removal of selected un-merged branches. No warning is given as to the merge status of a given branch.
+
+By default the "master" and "develop" branches will be ignored, so you can't accidentally delete them.
 
 ## git-find-branch (fbr)
 
-Runs a grep expression against the branches in your repo. If a solitary match is found, it will check out that branch immediately. When multiple matches are located, they will be listed and user my select which one to checkout. An empty returns quits without changing from the current branch.
+Runs a grep expression against the branches in your repo. 
+
+- If a solitary match is found, it will check out that branch immediately. 
+- When multiple matches are located, they will be listed as index and user may select which one to checkout. 
+- An empty return quits without changing from the current branch.
   
-**Examples**
+### Examples
 
 Our working directory has three branches.
 ```
@@ -85,11 +94,9 @@ Switched to branch 'master'
 
 ## git-branchify (cob)
 
-This command allows you to create new branches and automatically format the branch name to lower case with dashes. It is
-useful for managing long branch names, especially when cutting and pasting. The new branch is created of the current branch
-using `git checkout -b`.
+This command allows you to create new branches with `checkout -b`, while automatically formatting the branch name to lower kebab-case. It is
+useful for managing long branch names, especially when cutting and pasting from Jira ticket titles. 
 
-**Example**
 ```
 $ git branchify Branchify Makes It Easy To Cut-and-Paste Branch Names
 Switched to a new branch 'branchify-makes-it-easy-to-cut-and-paste-branch-names'
@@ -97,7 +104,7 @@ Switched to a new branch 'branchify-makes-it-easy-to-cut-and-paste-branch-names'
 
 ### Common prefixes (bug, feature, hotfix, spike)
 
-Aliases exist to create common branch fixes.
+Aliases exist for prepending common prefixes.
 
 ```
 $ git bug Fixing This Bug
