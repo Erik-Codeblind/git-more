@@ -4,6 +4,8 @@ branchified=$(echo "$*" | \
              # Replace any characters that are not alphanumeric, underscores,
              # or forward slashes with a dash.
              sed 's/[^a-zA-Z0-9\/_]/-/g' | \
+             # Collapse any instances of  "/-" to "/".
+             sed 's/\/\-/\//g' | \
              # Drop to lowercase.
              awk '{print tolower($0)}' )
-git checkout -b $branchified
+git checkout -b "$branchified"
