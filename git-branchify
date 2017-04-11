@@ -1,4 +1,9 @@
 #!/bin/bash
 ((!$#)) && echo Missing branch name argument. && exit 1
-branchified=$(echo "$*" | sed 's/[^a-zA-Z0-9\/_]/-/g' | sed 's/[\-]//' | awk '{print tolower($0)}' )
+branchified=$(echo "$*" | \
+             # Replace any characters that are not alphanumeric, underscores,
+             # or forward slashes with a dash.
+             sed 's/[^a-zA-Z0-9\/_]/-/g' | \
+             # Drop to lowercase.
+             awk '{print tolower($0)}' )
 git checkout -b $branchified
