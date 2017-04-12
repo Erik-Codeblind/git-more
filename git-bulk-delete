@@ -1,28 +1,31 @@
 #!/bin/bash
-found=$(git branch | sed 's/[\*]//g')
-found=($found)
+found=($(git branch | sed 's/[\*]//g'))
 
 red='\033[0;31m'
 yellow='\033[1;33m'
+green='\e[92m'
 nc='\033[0m' # No Color
 
-del='-d'
 if [ "$1" == '-D' ];then
    del='-D'
-   echo 'Operating in force delete mode may remove un-merged branches!'
+   notify_color="$red"
+   echo 'OPERATING IN FORCE DELETE MODE!'
+else
+    del='-d'
+    notify_color="$yellow"
 fi
 
 for i in "${!found[@]}"
 do
   if [ "${found[$i]}" != "master" ] && [ "${found[$i]}" != "develop" ];then
-    echo -n -e "${yellow}branch ${del}${red} to delete branch ${yellow}${found[$i]}${red}? ${nc}"
+    printf "branch ${del} to delete branch ${notify_color}${found[$i]}${nc}? "
     read -r response
     if [ "$response" == "y" ] || [ "$response" == "yes" ];then
        git branch "${del}" "${found[$i]}"
     elif [ "$response" == "q" ] || [ "$response" == "quit" ];then
         exit 1
     else
-        echo "Skipped ${found[$i]}."
+        printf "${green}Skipped ${found[$i]}${nc}\n"
     fi
   fi
 done
