@@ -5,6 +5,8 @@
   brD = branch -D
   fbr  = find-branch
   del = bulk-delete
+  ; Get current branch name
+  current = rev-parse --abbrev-ref HEAD
 
   ; git-cat-file
   dump = cat-file -p
