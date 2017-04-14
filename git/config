@@ -59,4 +59,4 @@
 
   ; Displays an interactive list of all branches. Enter key will checkout
   ; the highlighted branch. Press ^C to escape.
-  switch = ! git branch -a | ipt | xargs git checkout
+  switch = ! git branch | ipt | xargs git checkout
