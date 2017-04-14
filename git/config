@@ -20,6 +20,9 @@
   copr  = pull-request-checkout
   prco  = pull-request-checkout
   back  = checkout -
+  b   = checkout -
+  d   = checkout develop
+  m   = checkout master
 
   ; git-commit
   amend = commit -a --amend
