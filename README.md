@@ -14,6 +14,14 @@ export XDG_CONFIG_HOME="$HOME/Development/git-more"
 
 Source your current terminal or open a new one for changes to take effect. 
 
+### Extended Functionality
+Extended functionality requires 3rd party libraries managed by npm. These libraries must be installed globally. To add extended functionality support, install the following:
+
+```
+# iPipeTo https://github.com/ruyadorno/ipt#ipipeto--
+npm install -g ipt
+```
+
 ## git/conf
 
 This includes a custom git config file with numerous aliases. Have a look therein for more information. Your global `.gitconfig` can be used to override and augment any rules defined here.
