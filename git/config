@@ -36,7 +36,9 @@
   put = push-this
 
   ; git-rebase
-  up  = pull --rebase origin develop
+  up  = pull --rebase
+  pwr = pull --rebase
+  upd = pull --rebase origin develop
   upm = pull --rebase origin master
   ri  = rebase -i
 
