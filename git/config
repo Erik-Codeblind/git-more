@@ -54,6 +54,9 @@
   ; git-status
   st = status
 
+  ; GoTo Root directory
+  gtr = git rev-parse --show-toplevel
+
   ; Extended
   ; These commands require you install some npm packages. (See README.md)
 
