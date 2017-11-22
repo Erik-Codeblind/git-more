@@ -54,8 +54,10 @@
   ; git-status
   st = status
 
-  ; GoTo Root directory
-  gtr = git rev-parse --show-toplevel
+  ; Show top level directory of repo.
+  ; I can't automatically cd for you because of subshell limitations, so try...
+  ;     cd `git top`
+  top = rev-parse --show-toplevel
 
   ; Extended
   ; These commands require you install some npm packages. (See README.md)
