@@ -36,7 +36,7 @@
 
   ; git-logs
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  log1 = log --pretty=oneline
+  log1 = log --oneline
 
   ; git-push
   put = push-this
