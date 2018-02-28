@@ -48,8 +48,8 @@
   ri  = rebase -i
 
   ; git-reset
-  ditch   = reset HEAD~1 --hard
-  undo  = reset HEAD~1 --mixed
+  ditch   = reset HEAD --hard
+  undo  = reset HEAD --mixed
 
   ; git-status
   st = status
