@@ -46,6 +46,7 @@
   pwr = pull --rebase
   upd = pull --rebase origin develop
   upm = pull --rebase origin master
+  upo = pull --rebase origin
   ri  = rebase -i
 
   ; git-reset
