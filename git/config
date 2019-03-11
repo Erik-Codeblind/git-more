@@ -7,6 +7,7 @@
   del = bulk-delete
   ; Get current branch name
   current = rev-parse --abbrev-ref HEAD
+  c = rev-parse --abbrev-ref HEAD
 
   ; git-cat-file
   dump = cat-file -p
@@ -46,7 +47,8 @@
   pwr = pull --rebase
   upd = pull --rebase origin develop
   upm = pull --rebase origin master
-  upo = pull --rebase origin
+  upo = git pull --rebase origin
+  upthis = ! git rev-parse --abbrev-ref HEAD | xargs git pull --rebase origin
   ri  = rebase -i
 
   ; git-reset
