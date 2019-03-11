@@ -5,6 +5,9 @@
   brD = branch -D
   fbr  = find-branch
   del = bulk-delete
+  ; Get current branch name
+  current = rev-parse --abbrev-ref HEAD
+  c = rev-parse --abbrev-ref HEAD
 
   ; git-cat-file
   dump = cat-file -p
@@ -34,6 +37,7 @@
 
   ; git-logs
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  log1 = log --oneline
 
   ; git-push
   put = push-this
@@ -43,18 +47,25 @@
   pwr = pull --rebase
   upd = pull --rebase origin develop
   upm = pull --rebase origin master
+  upo = git pull --rebase origin
+  upthis = ! git rev-parse --abbrev-ref HEAD | xargs git pull --rebase origin
   ri  = rebase -i
 
   ; git-reset
-  ditch   = reset HEAD~1 --hard
-  undo  = reset HEAD~1 --mixed
+  ditch   = reset HEAD --hard
+  undo  = reset HEAD --mixed
 
   ; git-status
   st = status
+
+  ; Show top level directory of repo.
+  ; I can't automatically cd for you because of subshell limitations, so try...
+  ;     cd `git top`
+  top = rev-parse --show-toplevel
 
   ; Extended
   ; These commands require you install some npm packages. (See README.md)
 
   ; Displays an interactive list of all branches. Enter key will checkout
   ; the highlighted branch. Press ^C to escape.
-  switch = ! git branch -a | ipt | xargs git checkout
+  switch = ! git branch | ipt | xargs git checkout
